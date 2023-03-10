@@ -160,7 +160,7 @@ end
             if not shared["Open Egg"] then
                 break;
             end
-            wait(0.5)
+            wait(0.35)
             Open()
         end
     end,
