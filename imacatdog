@@ -1,0 +1,307 @@
+local function Flavor()
+    local args = {
+        [1] = "Shop",
+        [2] = "Item",
+        [3] = "Equip",
+        [4] = 1,
+        [5] = "obbyFlavors"
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Remote"):FireServer(unpack(args))
+end
+
+local function AutoClick()
+    local args = {
+        [1] = "Roll2"
+    }
+    
+    game:GetService("ReplicatedStorage").Remote:FireServer(unpack(args))
+end
+
+local function Energy()
+    for i = 1,  500 do
+        local args = {
+            [1] = "Shop",
+            [2] = "Item",
+            [3] = "Buy",
+            [4] = i,
+            [5] = "Tools"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):FireServer(unpack(args))
+    end
+end
+
+local function Open()
+    local args = {
+        [1] = "Pet",
+        [2] = "Egg",
+        [3] = "Hatch",
+        [4] = "Toxic Egg",
+        [5] = 3
+    }
+
+    game:GetService("ReplicatedStorage"):WaitForChild("Remote"):FireServer(unpack(args))
+end
+
+local function Rebirth()
+    local args = {
+        [1] = "rebirthBoard",
+        [2] = 4,
+        [3] = 5
+    }
+      
+    game:GetService("ReplicatedStorage"):WaitForChild("Remote"):FireServer(unpack(args))
+end
+  
+local function Sell()
+    local args = {  
+        [1] = "Sell2",
+        [2] = workspace:WaitForChild("Sells"):WaitForChild("Lobby")
+    }
+      
+    game:GetService("ReplicatedStorage"):WaitForChild("Remote"):FireServer(unpack(args))
+end
+  
+  
+  local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+  
+  local Window = Rayfield:CreateWindow({
+      Name = "Bogdan Ez",
+      LoadingTitle = "Bog on da beat",
+      LoadingSubtitle = "by Bogdaddy",
+      ConfigurationSaving = {
+         Enabled = true,
+         FolderName = nil, -- Create a custom folder for your hub/game
+         FileName = "Peen"
+      },
+      Discord = {
+         Enabled = false,
+         Invite = "SIRIUS", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD.
+         RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+      },
+      KeySystem = false, -- Set this to true to use our key system
+      KeySettings = {
+         Title = "Sirius Hub",
+         Subtitle = "Key System",
+         Note = "Join the discord (discord.gg/sirius)",
+         FileName = "SiriusKey",
+         SaveKey = true,
+         GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+         Key = "Hello"
+      }
+   })
+  
+  local Tab = Window:CreateTab("Tab Example", 4483362458) -- Title, Image
+  
+  local Section = Tab:CreateSection("Section Example")
+  
+  local Toggle = Tab:CreateToggle({
+      Name = "Auto Rebirth",
+      CurrentValue = false,
+      Flag = "Auto Rebirth", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+      Callback = function(x)
+          shared["Auto Rebirth"] = x
+          while shared["Auto Rebirth"] do
+              task.wait()
+              if not shared["Auto Rebirth"] then
+                  break;
+              end
+              wait(0.0)
+              Rebirth()
+          end
+      end,
+   })
+  
+   local Toggle = Tab:CreateToggle({
+      Name = "Auto Sell",
+      CurrentValue = false,
+      Flag = "Auto Sell", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+      Callback = function(x)
+          shared["Auto Sell"] = x
+          while shared["Auto Sell"] do
+              task.wait()
+              if not shared["Auto Sell"] then
+                  break;
+              end
+              wait(0.0)
+              Sell()
+          end
+      end,
+      
+   })
+
+   local Toggle = Tab:CreateToggle({
+      Name = "Obby Flavor",
+      CurrentValue = false,
+      Flag = "Obby Flavor",
+      Callback = function(x)
+          shared["Obby Flavor"] = x
+          while shared["Obby Flavor"] do
+              task.wait()
+              if not shared["Obby Flavor"] then
+                  break;
+              end
+              wait(0.0)
+              Flavor()
+          end
+      end,
+      
+   })
+
+   local Toggle = Tab:CreateToggle({
+    Name = "Open Egg",
+    CurrentValue = false,
+    Flag = "Open Egg",
+    Callback = function(x)
+        shared["Open Egg"] = x
+        while shared["Open Egg"] do
+            task.wait()
+            if not shared["Open Egg"] then
+                break;
+            end
+            wait(0.0)
+            Open()
+        end
+    end,
+    
+ })
+
+ local Toggle = Tab:CreateToggle({
+    Name = "Buy Energy",
+    CurrentValue = false,
+    Flag = "Buy Energy",
+    Callback = function(x)
+        shared["Buy Energy"] = x
+        while shared["Buy Energy"] do
+            task.wait()
+            if not shared["Buy Energy"] then
+                break;
+            end
+            wait(0.0)
+            Energy()
+        end
+    end,
+    
+ })
+
+ local Toggle = Tab:CreateToggle({
+    Name = "Auto Click",
+    CurrentValue = false,
+    Flag = "Auto Click",
+    Callback = function(x)
+        shared["Auto Click"] = x
+        while shared["Auto Click"] do
+            task.wait()
+            if not shared["Auto Click"] then
+                break;
+            end
+            wait(0.0)
+            AutoClick()
+        end
+    end,
+    
+ })
+
+   
+   local Button = Tab:CreateButton({
+     Name = "Anti Afk",
+     Callback = function(x)
+     local Rice = Instance.new("ScreenGui")
+  local Main = Instance.new("Frame")
+  local Title = Instance.new("TextLabel")
+  local Credits = Instance.new("TextLabel")
+  local Activate = Instance.new("TextButton")
+  local UICorner = Instance.new("UICorner")
+  local OpenClose = Instance.new("TextButton")
+  local UICorner_2 = Instance.new("UICorner")
+  
+  Rice.Name = "Rice"
+  Rice.Parent = game.CoreGui
+  Rice.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+  
+  Main.Name = "Main"
+  Main.Parent = Rice
+  Main.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+  Main.BorderSizePixel = 0
+  Main.Position = UDim2.new(0.321207851, 0, 0.409807354, 0)
+  Main.Size = UDim2.new(0, 295, 0, 116)
+  Main.Visible = false
+  Main.Active = true
+  Main.Draggable =  true
+  
+  Title.Name = "Title"
+  Title.Parent = Main
+  Title.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+  Title.BorderSizePixel = 0
+  Title.Size = UDim2.new(0, 295, 0, 16)
+  Title.Font = Enum.Font.GothamBold
+  Title.Text = "Rice Anti-Afk"
+  Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+  Title.TextScaled = true
+  Title.TextSize = 12.000
+  Title.TextWrapped = true
+  
+  Credits.Name = "Credits"
+  Credits.Parent = Main
+  Credits.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+  Credits.BorderSizePixel = 0
+  Credits.Position = UDim2.new(0, 0, 0.861901641, 0)
+  Credits.Size = UDim2.new(0, 295, 0, 16)
+  Credits.Font = Enum.Font.GothamBold
+  Credits.Text = "Made by jamess#0007"
+  Credits.TextColor3 = Color3.fromRGB(255, 255, 255)
+  Credits.TextScaled = true
+  Credits.TextSize = 12.000
+  Credits.TextWrapped = true
+  
+  Activate.Name = "Activate"
+  Activate.Parent = Main
+  Activate.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+  Activate.BorderColor3 = Color3.fromRGB(27, 42, 53)
+  Activate.BorderSizePixel = 0
+  Activate.Position = UDim2.new(0.0330629945, 0, 0.243326917, 0)
+  Activate.Size = UDim2.new(0, 274, 0, 59)
+  Activate.Font = Enum.Font.GothamBold
+  Activate.Text = "Activate"
+  Activate.TextColor3 = Color3.fromRGB(0, 255, 127)
+  Activate.TextSize = 43.000
+  Activate.TextStrokeColor3 = Color3.fromRGB(102, 255, 115)
+  Activate.MouseButton1Down:connect(function()
+     local vu = game:GetService("VirtualUser")
+     game:GetService("Players").LocalPlayer.Idled:connect(function()
+        vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+        wait(1)
+        vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+     end)
+  end)
+  
+  
+  UICorner.Parent = Activate
+  
+  OpenClose.Name = "Open/Close"
+  OpenClose.Parent = Rice
+  OpenClose.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+  OpenClose.Position = UDim2.new(0.353924811, 0, 0.921739101, 0)
+  OpenClose.Size = UDim2.new(0, 247, 0, 35)
+  OpenClose.Font = Enum.Font.GothamBold
+  OpenClose.Text = "Open/Close"
+  OpenClose.TextColor3 = Color3.fromRGB(255, 255, 255)
+  OpenClose.TextSize = 14.000
+  
+  UICorner_2.Parent = OpenClose
+  
+  local function NERMBF_fake_script() -- OpenClose.LocalScript 
+     local script = Instance.new('LocalScript', OpenClose)
+  
+     local frame = script.Parent.Parent.Main
+     
+     script.Parent.MouseButton1Click:Connect(function()
+        frame.Visible = not frame.Visible
+     end)
+  end
+  coroutine.wrap(NERMBF_fake_script)()
+  
+     end,
+  })
+  
